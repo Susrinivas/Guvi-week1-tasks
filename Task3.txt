@@ -1,0 +1,37 @@
+3. Write a write up on Difference between copy by value and copy by reference?
+
+Copy by Value :
+ 1. In programming languages copy  by value often refers to deep copy 
+ for ex: when you need to copy some content, you want to copy the content and can paste it in other location, so modifying the content on one location will not change the orginal content
+ In programming view
+  EX :  var str1 = ""abc";
+       var str2 = str1;
+       str1 = "csds";
+       console.log(str1, str2);
+       output : csds abc
+        
+        so here in above example we copied str1 conent to str2 and modified str1, changing str1 value will not effect str2 as this copy by value ( deep copy);
+  This is called copy by value
+
+  Copy by Reference :  copy by reference also called copy by address 
+
+  EX : var a = function();
+      var b = a;
+
+In above example, a is assigned to function and when you assign 'a' to variable 'b', then 'a' & 'b' will both point to same address location of function()
+
+so changing content of one variable will effect other;
+
+Ex: var arr1 = [10, 20]
+    var arr2 = arr1;
+    arr2[2]=100;
+    arr1[3]=300;
+
+    console.log(arr1, arr2);
+
+
+    output: [10,20,100,300], [10,20,100,300]
+
+    In above example, changing content of one variable effects other
+
+    in real world we had applications like google drive etc where the contents need to get copy faster, then copy by refernce will come into picture.

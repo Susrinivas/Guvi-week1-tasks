@@ -1,0 +1,50 @@
+4. How to copy by value a composite data type (array+objects). 
+
+There are 3 ways to copy by value for composite data types.
+  1. Using the spread (...) operator
+  2. Using the Object.assign() method
+  3. Using the JSON.stringify() and JSON.parse() methods
+
+1. Spread operator(...):
+
+EX : var a = [1,2,3]
+     var b =[..a];
+    console.log(a, b);
+    b[2]=4;
+    console.log(a, b);
+  
+  output : [1,2,3], [1,2,3]
+           [1,2,3],[1,2,4]
+
+As you observed above only contents of b changed not for a.
+
+2. Using Object.assign() :
+  object.assign() copies all enumerable own properties from one or more source objects to target object. it returns the target object
+
+ ex : var a = [1,2,3]
+      var b = Object.assign([],a)
+      console.log(a, b)
+      b[2]=100
+      console.log(a, b);
+  
+  output: [1,2,3], [1,2,3]
+          [1,2,3],[1,2,100]
+
+only contents of b changed not for a
+
+
+3. Using JSON.parse() and JSON.stringify():
+
+The JSON object, available in all modern browsers, has two useful methods to deal with JSON-formatted content: parse and stringify. JSON.parse() takes a JSON string and transforms it into a JavaScript object. JSON.stringify() takes a JavaScript object and transforms it into a JSON string.Using JSON.parse() and JSON.stringify() for copy performs deep copy .
+
+Ex : var a =[1,2,3];
+     var b = JSON.parse(JSON.stringify(a))
+     console.log(a,b)
+     b[2]=34;
+     console.log(a,b);
+
+output: [1,2,3],[1,2,3]
+        [1,2,3],[1,2,34]
+
+
+

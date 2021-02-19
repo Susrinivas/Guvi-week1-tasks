@@ -1,0 +1,57 @@
+1. Difference between HTTP1.1 vs HTTP2 HTTP version history?
+
+A. HTTP1.1 : Developed by Timothy Berners-Lee  in 1989 & came to existence in 1997, since then it created reveloution in the Internet world, Http1.1 is used to establish connection between client machine & server machine. this is a client-server architecture. Http1.1 uses plaint text format requests 
+To establish connection between client & server, client sends a request in plain text format to server & server responds with response
+
+Below is an exmaple on how client request will look like
+
+Ex: 
+GET /index.html HTTP/1.1
+Host: www.example.com
+
+HTTP 1.1 has several issues like speed, delay in response from resouce, high latency etc
+Http2 overcomes all this issues & is the leader of web right now ( without this we cannot surf the web or internet)
+
+Http2 uses binary framing layer unlike plain text format which greatly helped to cope up the existing issues with Http1.1
+
+Delivery models: Http 1.1 uses plain text format
+                 Http2 uses binary framing 
+
+Multiplexing : Http1.1 sends requests & responses seperately in single TCP connection which is likely proned to errors & need high bandwidth 
+               Http2 uses multiplexing where within the single connection there are multiple streams of data. each stream consists of multiple messages in the                request/response format.finally, each of these messages split into smaller units called frames
+
+Stream prioritisation: As you know now, the binary framing layer organizes messages into parallel streams of data. When a client sends concurrent requests to a server, it can prioritize the responses it is requesting by assigning a weight between 1 and 256 to each stream. The higher number indicates higher priority. 
+
+Buffer Overflow: Http1.1 uses transport layer for buffer overflow in which for single TCP connection there is single buffer allocated for client & server which in most causes buffer oveflow issue
+Http2 uses Application layer protocol for buffer overflow to overcome these problems
+
+Please go throgh below  for demo
+url - https://http2.golang.org/gophertiles
+
+HTTP version history:
+
+HTTP/0.9 — The One-line Protocol
+ Initial version of HTTP — a simple client-server, request-response, telenet-friendly protocol
+ Request nature: single-line (method + path for requested document)
+ Methods supported: GET only
+ Response type: hypertext only
+ Connection nature: terminated immediately after the response
+ No HTTP headers (cannot transfer other content type files), No status/error codes, No URLs
+
+HTTP/1.0 — Building extensibility
+    Browser-friendly protocol
+    Provided header fields including rich metadata about both request and response (HTTP version number, status code, content type)
+    Response: not limited to hypertext (Content-Type header provided ability to transmit files other than plain HTML files — e.g. scripts, stylesheets, media)
+    Methods supported: GET , HEAD , POST
+    Connection nature: terminated immediately after the response
+
+HTTP/1.1 — The standardized protocol
+   This is the HTTP version currently in common use.
+   Introduced critical performance optimizations and feature enhancements — persistent and pipelined connections, chunked transfers, compression/decompression, content                                                                             negotiations, virtual hosting (a server with a single IP Address hosting multiple domains),                                                                             faster response and great bandwidth savings by adding cache support.
+   Methods supported: GET , HEAD , POST , PUT , DELETE , TRACE , OPTIONS
+   Connection nature: long-lived
+
+Http/2 : solved Buffer overflow issues
+         introduced multiplexing
+         Stream prioritisation
+         binary framing

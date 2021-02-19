@@ -1,0 +1,24 @@
+2. what happens when you type a URL in the address bar in the browser?
+
+Ans:  url - uniform resource locator
+
+when we type a url in browser, browser checks for DNS(Domain name system which maps domain name to IP address) entry in cache
+ 1> Browser cache
+ 2> operating system cache
+ 3> Router cache
+ 4> ISP cache
+
+ if not found in any of above cache(will follow above order) then ISP DNS server intiates DNS query to look up IP address of domain name after which TCP connection establishes between client & host server for acknowledgment
+ After TCP connection establishes & acknowledgement happened, the server will send the  information content requested by browser in response 
+ Server wil handover html, css & js file to browser. after which rendering process will happen.
+Rendering process : Html parser will parse the html file & css parser will parse the css file 
+  after which layout tree will get generated & layout process , painting process by operating system will happen which will fill the browser window
+  js engine will transform the js file sent by server to tokens & tokens will transform into Abstarct system tree.
+  the process in which js tokens( tokens are nothing but pieces of js code ) get transform to Abstract syntaxt tree is called lexical analysis
+ interpreter will convert the AST tree to byte code( machine code)
+profiler will monitor the interpreter process  in which if any optimisation required then profiler will give that piece of AST tree to compiler from interpreter, compiler then optimise the code & covert into byte code
+the machine code gets executed by cpu & finally display the results in our webpage
+
+So, finally the Html, css & js files sent by browser transformed into user friendly web page.
+
+

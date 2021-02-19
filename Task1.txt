@@ -1,0 +1,15 @@
+1. List 5 differences between Browser JS vs Node Js.
+
+Browser JS : 
+  1. client side javascript 
+  2 . Javascript runs in js enine on Browser
+  3.  doesn't have access to filesystem
+  4. sandboxed environment 
+  5. cannot able to execute on local machine with out Browser.
+
+Node.js :
+  1. This is used as backend language like java, python, php
+  2. used to write business logic of Application
+  3. this is used to write standalone & dyamic applications
+  4. same syntax of javascript as Broser js but runs on node.js server
+  5. Able to access file system of machine.
